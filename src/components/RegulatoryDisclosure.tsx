@@ -20,7 +20,7 @@ const RegulatoryDisclosure = () => {
             </div>
             <div className="space-y-4 text-gray-700">
               <p>
-                <strong>Licensed Insurance Agency:</strong>Brands insurance Agency is authorised and regulated by the Insurance Regulatory Authority of Kenya Licence number IRA/05/25043/2025
+                <strong>Licensed Insurance Agency:</strong> Brands insurance Agency is authorised and regulated by the Insurance Regulatory Authority of Kenya Licence number IRA/05/25043/2025
               </p>
               <p>
                 <strong>Lloyd's of London Partnership:</strong> We operate in strategic partnership with 
