@@ -60,11 +60,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          {/* Updated PNG with larger, stretched size */}
+          {/* Updated PNG with adjusted size to avoid squeezing */}
           <img
             src="/assets/broker_at_lloyds.png" // Replace with your actual PNG path
             alt="Brands Insurance Agency Footer Logo"
-            className="mx-auto mb-4 w-64 h-64 object-cover" // Increased to 256px x 256px, stretched with object-cover
+            className="mx-auto mb-4 w-48 h-auto object-contain" // Adjusted to 192px wide, auto height, object-contain to preserve aspect ratio
           />
           {/* Existing copyright */}
           <p className="text-gray-400">&copy; 2025 Brands Insurance Agency. All rights reserved.</p>
