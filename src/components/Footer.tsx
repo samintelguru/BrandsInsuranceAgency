@@ -60,11 +60,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          {/* New PNG insertion */}
+          {/* Updated PNG with larger, stretched size */}
           <img
-            src="/assets/broker_at_lloyds.png" // Replace with your actual PNG path (e.g., uploaded to Bolt.new Assets)
+            src="/assets/footer-logo.png" // Replace with your actual PNG path
             alt="Brands Insurance Agency Footer Logo"
-            className="mx-auto mb-4 w-32 h-32" // Centered, with margin below, adjustable size
+            className="mx-auto mb-4 w-64 h-64 object-cover" // Increased to 256px x 256px, stretched with object-cover
           />
           {/* Existing copyright */}
           <p className="text-gray-400">&copy; 2025 Brands Insurance Agency. All rights reserved.</p>
