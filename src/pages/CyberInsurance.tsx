@@ -1,8 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShieldAlert, Shield, CheckCircle } from 'lucide-react';
 
 const CyberInsurance = () => {
+  const navigate = useNavigate();
+
+  const handleBackNavigation = () => {
+    const previousPage = sessionStorage.getItem('previousPage');
+    const returnToServices = sessionStorage.getItem('returnToServices');
+    const scrollPosition = sessionStorage.getItem('previousScrollPosition');
+    
+    if (previousPage && returnToServices === 'true') {
+      navigate(previousPage);
+      sessionStorage.removeItem('previousPage');
+      sessionStorage.removeItem('previousScrollPosition');
+      sessionStorage.removeItem('returnToServices');
+      
+      setTimeout(() => {
+        const servicesElement = document.getElementById('services');
+        if (servicesElement) {
+          servicesElement.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+        }
+      }, 100);
+    } else {
+      navigate(-1);
+    }
+  };
+
   const policyTypes = [
     {
       title: 'Data Breach Coverage',
@@ -29,6 +55,21 @@ const CyberInsurance = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Back Navigation */}
+      <div className="bg-gray-50 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onClick={handleBackNavigation}
+            className="flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Services
+          </button>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
