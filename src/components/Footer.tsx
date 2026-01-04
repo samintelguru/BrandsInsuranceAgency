@@ -67,7 +67,7 @@ const Footer = () => {
             className="mx-auto mb-4 w-160 h-auto object-contain" // Adjusted to 192px wide, auto height, object-contain to preserve aspect ratio
           />
           {/* Existing copyright */}
-          <p className="text-gray-400">&copy; 2025 Brands Insurance Agency. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2026 Brands Insurance Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>
