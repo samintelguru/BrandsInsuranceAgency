@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   HeartPulse,
@@ -104,6 +104,16 @@ export const services = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (link: string) => {
+    // Store the current scroll position and page info
+    sessionStorage.setItem('previousPage', '/');
+    sessionStorage.setItem('previousScrollPosition', window.scrollY.toString());
+    sessionStorage.setItem('returnToServices', 'true');
+    navigate(link);
+  };
+
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,9 +126,9 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link
+            <button
               key={index}
-              to={service.link}
+              onClick={() => handleServiceClick(service.link)}
               className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className={`inline-flex p-3 rounded-lg bg-gray-100 ${service.color} mb-6`}>
@@ -130,7 +140,7 @@ const Services = () => {
                 Learn More
                 <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-200" />
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>
